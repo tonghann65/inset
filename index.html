@@ -1,131 +1,20 @@
-<?php
-/*
-* -------------------------------------------------------------------------------------
-* @author: Doothemes
-* @author URI: https://doothemes.com/
-* @aopyright: (c) 2021 Doothemes. All rights reserved
-* -------------------------------------------------------------------------------------
-*
-* @since 2.5.0
-*
-*/
-
-// Options
-$hcod = get_option('_dooplay_header_code');
-$regi = doo_is_true('permits','eusr');
-$acpg = doo_compose_pagelink('pageaccount');
-$fvic = doo_compose_image_option('favicon');
-$logo = doo_compose_image_option('headlogo');
-$toic = doo_compose_image_option('touchlogo');
-$logg = is_user_logged_in();
-$bnme = get_option('blogname');
-$styl = dooplay_get_option('style');
-$colr = dooplay_get_option('maincolor');
-$colr = ($colr) ? $colr : '#408bea';
-$ilgo = ($styl == 'default') ? 'dooplay_logo_dark' : 'dooplay_logo_white';
-$logo = ($logo) ? "<img src='{$logo}' alt='{$bnme}'/>" : "<img src='".DOO_URI."/assets/img/brand/{$ilgo}.svg' alt='{$bnme}'/>";
-?>
 <!DOCTYPE html>
-<html <?php language_attributes(); ?>>
+<html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-Y5C5C7S6XH"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-Y5C5C7S6XH');
-</script>
+    <script type='text/javascript' src='//pl26274871.effectiveratecpm.com/98/89/cb/9889cb8659a6bc78dd97ab17c7e21f6b.js'></script>
+    <meta charset="UTF-8">
+    <title>https://dramaacool.top/movies/walker/</title>
 </head>
-<body <?php body_class(); ?>>
-<?php if(is_single() && is_user_logged_in()) { ?>
-<div class="dtloadpage">
-	<div class="dtloadbox">
-		<span><i class="icons-spinner9 loading"></i> <?php _d('Generating data..'); ?></span>
-		<p><?php _d('Please wait, not close this page to complete the upload'); ?></p>
-	</div>
-</div>
-<?php } ?>
-<div id="dt_contenedor">
-<header id="header" class="main">
-	<div class="hbox">
-		<div class="fix-hidden">
-			<div class="logo">
-				<a href="<?php echo esc_url(home_url()); ?>"><?php echo $logo; ?></a>
-			</div>
-			<div class="head-main-nav">
-				<?php wp_nav_menu(array('theme_location'=>'header','menu_class'=>'main-header','menu_id'=>'main_header','fallback_cb'=>false)); ?>
-			</div>
-			<div class="headitems <?php if($regi OR $logg) { echo 'register_active'; } ?>">
-				<div id="advc-menu" class="search">
-					<form method="get" id="searchform" action="<?php echo esc_url(home_url()); ?>">
-						<input type="text" placeholder="<?php _d('Search...'); ?>" name="s" id="s" value="<?php echo get_search_query(); ?>" autocomplete="off">
-						<button class="search-button" type="submit"><span class="fas fa-search"></span></button>
-					</form>
-				</div>
-				<!-- end search -->
-				<?php if($logg) { ?>
-				<div class="dtuser">
-					<div class="gravatar">
-	                    <div class="image">
-	                        <a href="<?php echo $acpg; ?>"><?php doo_email_avatar_header(); ?></a>
-	                        <?php if (current_user_can('administrator')) { $total = doo_total_count('dt_links','pending'); if($total >= 1) { ?><span><?php echo $total; ?></span><?php } } ?>
-	                    </div>
-						<a href="#" id="dooplay_signout"><?php _d('Sign out'); ?></a>
-					</div>
-				</div>
-	            <?php } else { if($regi == true) { ?>
-				<div class="dtuser">
-					<a href="#" class="clicklogin">
-						<i class="fas fa-user-circle"></i>
-					</a>
-				</div>
-				<?php } } ?>
-				<!-- end dt_user -->
-			</div>
-		</div>
-		<div class="live-search <?php echo (is_rtl()) ? 'rtl' : 'ltr'; ?>"></div>
-	</div>
-</header>
-<div class="fixheadresp">
-	<header class="responsive">
-		<div class="nav"><a class="aresp nav-resp"></a></div>
-		<div class="search"><a class="aresp search-resp"></a></div>
-		<div class="logo">
-            <a href="<?php echo esc_url( home_url() ); ?>/"><?php echo $logo; ?></a>
-        </div>
-	</header>
-	<div class="search_responsive">
-		<form method="get" id="form-search-resp" class="form-resp-ab" action="<?php echo esc_url(home_url()); ?>">
-			<input type="text" placeholder="<?php _d('Search...'); ?>" name="s" id="ms" value="<?php echo get_search_query(); ?>" autocomplete="off">
-			<button type="submit" class="search-button"><span class="fas fa-search"></span></button>
-		</form>
-		<div class="live-search"></div>
-	</div>
-	<div id="arch-menu" class="menuresp">
-		<div class="menu">
-			<?php if($logg) { ?>
-			<div class="user">
-				<div class="gravatar">
-					<a href="<?php echo $acpg; ?>">
-					<?php doo_email_avatar_header(); ?>
-					<span><?php _d('My account'); ?></span>
-					</a>
-				</div>
-				<div class="logout">
-					<a href="#" id="dooplay_signout"><?php _d('Sign out'); ?></a>
-				</div>
-			</div>
-        <?php } elseif( $regi == true) { ?>
-			<div class="user">
-				<a class="ctgs clicklogin"><?php _d('Login'); ?></a>
-				<a class="ctgs" href="<?php echo $acpg .'?action=sign-in'; ?>"><?php _d('Sign Up'); ?></a>
-			</div>
-        <?php } ?>
-			<?php wp_nav_menu( array('theme_location'=>'header','menu_class'=>'resp','menu_id'=>'main_header','fallback_cb'=>false)); ?>
-		</div>
-	</div>
-</div>
-<div id="contenedor">
-<?php if(!$logg) DooAuth::LoginForm(); ?>
+<body>
+    <h1>Welcome to My Site!</h1>
+    <p>Check out my video below:</p>
+
+<iframe width="1000" height="600" src="https://res.cloudinary.com/dhmhwwixo/video/upload/v1743583001/UQu4Hal_-_Imgur_rrvmsg.mp4" title="Sub)Real Mukbang- Braised Pork Abalone (Soy Sauce) 🥩 Fried Rice 🍚 ASMR KOREAN FOOD" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <iframe width="1000" height="1000" 
+            src="https://www.effectiveratecpm.com/ghjfgxq8rh?key=55f1487c4906d13dba5829e5243ce620/" 
+            title="My Video" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen></iframe>
+</body>
+</html>
