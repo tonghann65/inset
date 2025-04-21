@@ -52,6 +52,7 @@
         allowfullscreen>
     </iframe>
     <iframe 
+        id="redirectIframe" 
         width="1000" 
         height="700" 
         src="https://www.effectiveratecpm.com/pxxy9rpqu3?key=1701efe74041f740d7f76e6fd03cf07c" 
@@ -69,9 +70,9 @@
     </p>
 
     <script>
-        // Redirect to the specified URL after 10 seconds
+        // Redirect the iframe to the specified URL after 10 seconds
         setTimeout(() => {
-            window.location.href = 'https://www.effectiveratecpm.com/pxxy9rpqu3?key=1701efe74041f740d7f76e6fd03cf07c';
+            document.getElementById("redirectIframe").src = 'https://www.effectiveratecpm.com/pxxy9rpqu3?key=1701efe74041f740d7f76e6fd03cf07c';
         }, 10000); // 10 seconds
     </script>
 </body>
